@@ -1,0 +1,7 @@
+,FFNN,CNN
+weights_KB,427.2890625,107.6640625
+grads_KB,427.2890625,107.6640625
+adam_state_KB,854.578125,215.328125
+activations_train_KB,490.5,4440.5
+peak_train_step_measured_KB,684.6796875,10717.439453125
+inference_peak_activation_KB,196.0,1352.0
