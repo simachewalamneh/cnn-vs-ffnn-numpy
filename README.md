@@ -61,3 +61,7 @@ python symmetry_checks.py    # writes results/report_figs/*.png and checks.json 
 - `symmetry_checks.py` - numerical verification of the Task 2 theory + figures
 - `docs/` - Task 2 report (Word)
 - `results/` - CSV tables (A headline, B architecture and memory, C invariance, D data scaling, F shifted data) and figures
+## References
+- LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). Gradient-Based Learning Applied to Document Recognition. *Proceedings of the IEEE*, 86(11), 2278–2324.
+- Krizhevsky, A., Sutskever, I., and Hinton, G. E. (2012). ImageNet Classification with Deep Convolutional Neural Networks. *Advances in Neural Information Processing Systems (NeurIPS)*, 25.
+- Bronstein, M. M., Bruna, J., Cohen, T., and Veličković, P. (2021). Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges. arXiv:2104.13478.
