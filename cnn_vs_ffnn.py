@@ -73,7 +73,6 @@ class Flatten:
 
 
 class Conv2D:
-    """Valid convolution, stride 1.  Implemented as im2col + one big matrix multiply."""
     def __init__(self, c_in, c_out, k, rng):
         self.W = (rng.standard_normal((c_out, c_in, k, k)) * np.sqrt(2.0 / (c_in * k * k))).astype(np.float32)
         self.b = np.zeros(c_out, np.float32)
