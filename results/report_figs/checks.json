@@ -1,0 +1,154 @@
+{
+  "1_circular_equiv_maxerr": 0.0,
+  "1_valid_equiv_maxerr_object_inside": 0.0,
+  "1_dense_equiv_relerr": 1.405126935158624,
+  "2_circulant_commutes_with_shift_err": 0.0,
+  "2_random_dense_commutes_with_shift_err": 3.1672446009906734,
+  "params_dense_784x784": 614656,
+  "params_conv_3x3": 9,
+  "3_pool_table": [
+    {
+      "shift_px": 0,
+      "flatten_relchange": 0.0,
+      "globalsum_relchange": 0.0,
+      "raw_pixels_relchange": 0.0
+    },
+    {
+      "shift_px": 1,
+      "flatten_relchange": 0.4224247503419,
+      "globalsum_relchange": 0.04361864064113528,
+      "raw_pixels_relchange": 0.6602157667124422
+    },
+    {
+      "shift_px": 2,
+      "flatten_relchange": 0.7718498240850629,
+      "globalsum_relchange": 1.3634463185119003e-16,
+      "raw_pixels_relchange": 0.9809223515404902
+    },
+    {
+      "shift_px": 3,
+      "flatten_relchange": 1.0169682763411778,
+      "globalsum_relchange": 0.04361864064113527,
+      "raw_pixels_relchange": 1.2021918280461643
+    },
+    {
+      "shift_px": 4,
+      "flatten_relchange": 1.2138012286151425,
+      "globalsum_relchange": 1.28763908715326e-16,
+      "raw_pixels_relchange": 1.3326819871135658
+    },
+    {
+      "shift_px": 5,
+      "flatten_relchange": 1.3106927372154804,
+      "globalsum_relchange": 0.04361864064113526,
+      "raw_pixels_relchange": 1.4022254224014425
+    },
+    {
+      "shift_px": 6,
+      "flatten_relchange": 1.3884076790402686,
+      "globalsum_relchange": 1.4352551369573382e-16,
+      "raw_pixels_relchange": 1.4137401922329507
+    }
+  ],
+  "3_pool_equiv_even_shift_err": 0.0,
+  "3_pool_odd_shift_min_err_over_coarse_shifts": 3.1590687334537506,
+  "4_rot90_plain_conv_relerr": 1.4450892491352891,
+  "4_rot90_rotated_kernel_relerr": 0.0,
+  "4_p4_lifting_equiv_err": 0.0,
+  "4_p4_lifting_wrong_direction_err": 1.9999999999998848,
+  "4_plain_conv_globalsum_rot90_relchange": 0.24138522338347823,
+  "4_p4_groupmax_globalsum_rot90_relchange": 0.0,
+  "4_p4_groupmax_globalsum_rot45_relchange": 0.11746385013478412,
+  "5_receptive_field_cnn": [
+    [
+      "conv1 3x3",
+      3,
+      1,
+      3,
+      1
+    ],
+    [
+      "pool1 2x2",
+      2,
+      2,
+      4,
+      2
+    ],
+    [
+      "conv2 3x3",
+      3,
+      1,
+      8,
+      2
+    ],
+    [
+      "pool2 2x2",
+      2,
+      2,
+      10,
+      4
+    ]
+  ],
+  "5_receptive_field_no_pooling_5_convs": [
+    [
+      "conv1",
+      3,
+      1,
+      3,
+      1
+    ],
+    [
+      "conv2",
+      3,
+      1,
+      5,
+      1
+    ],
+    [
+      "conv3",
+      3,
+      1,
+      7,
+      1
+    ],
+    [
+      "conv4",
+      3,
+      1,
+      9,
+      1
+    ],
+    [
+      "conv5",
+      3,
+      1,
+      11,
+      1
+    ]
+  ],
+  "5_empirical_rf_of_pool2_unit": {
+    "n_pixels": 100,
+    "height": 10,
+    "width": 10
+  },
+  "5_rf_8layers_with_pooling": [
+    3,
+    4,
+    8,
+    10,
+    18,
+    22,
+    38,
+    46
+  ],
+  "5_rf_8layers_no_pooling": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    17
+  ]
+}
