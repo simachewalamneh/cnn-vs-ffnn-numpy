@@ -48,19 +48,59 @@ The dataset downloads automatically into `data/` on first run. Tables are writte
 Limitations: single seed, small subset, small models, CPU only. Average several seeds before drawing fine-grained conclusions.
 
 ## Task 2: symmetry and scale separation (theory + numerical verification)
-`docs/CNN_Symmetry_and_Scale_Separation_Report.docx` explains, with proofs, why CNNs work: translation equivariance of convolution
+`Doc/CNN_Symmetry_and_Scale_Separation_Report.tex` (compiled PDF alongside it) explains, with proofs, why CNNs work: translation equivariance of convolution
 (and why convolution is the *only* such linear layer), pooling and aliasing, why rotation and zoom are not covered, receptive-field growth
 (scale separation), and stability to deformations. `symmetry_checks.py` verifies every claim numerically and regenerates the figures.
 ```bash
 python symmetry_checks.py    # writes results/report_figs/*.png and checks.json (needs results/C_invariance.csv for fig 5)
 ```
 
+## Extension: CIFAR-10 (RGB) experiment
+The grayscale study above uses centered, single-channel Fashion-MNIST. `cnn_vs_ffnn_rgb.py` reruns the same
+comparison on 3-channel, uncentered **CIFAR-10** images to test whether the CNN's advantage grows on harder,
+real-world data — it does, going from a near-tie to a large, decisive gap. Full results, tables and discussion
+are in **`README_rgb.md`**; this file and the Task 2 report above are unchanged by that experiment.
+```bash
+python cnn_vs_ffnn_rgb.py --ntrain 6000 --ntest 2000 --epochs 12
+```
+
+## File structure
+```
+cnn-vs-ffnn-numpy/
+├── cnn_vs_ffnn.py                    # Task 1: CNN/FFNN models, training, experiments (Fashion-MNIST)
+├── cnn_vs_ffnn_rgb.py                # CIFAR-10 (RGB) extension of Task 1 — reuses layers from cnn_vs_ffnn.py
+├── gradcheck.py                      # numerical gradient check (grayscale models)
+├── symmetry_checks.py                # numerical verification of the Task 2 theory + figure generation
+├── receptive_field_visualization.py  # receptive-field measurement/visualization used in the Task 2 report
+├── requirements.txt
+├── README.md                         # this file — Task 1 + Task 2 overview
+├── README_rgb.md                     # CIFAR-10/RGB experiment write-up and results
+├── LICENSE
+├── .gitignore
+├── Doc/                               # Task 2 report (LaTeX source, compiled PDF, figures)
+├── data/                              # downloaded datasets (Fashion-MNIST, CIFAR-10) — gitignored
+├── results/                           # Task 1 grayscale CSV tables and figures
+└── results_rgb/                       # CIFAR-10/RGB CSV tables and figures
+```
+
+## What's implemented so far
+- **Task 1 (grayscale):** CNN and FFNN built from scratch in NumPy, trained and compared on Fashion-MNIST across
+  accuracy, F1, training time, FLOPs, memory, overfitting, data-scaling efficiency, robustness to
+  rotation/shift/zoom, and feature hierarchy. See Results above.
+- **Task 2:** full mathematical report on symmetry and scale separation in CNNs — translation equivariance,
+  the convolution uniqueness theorem, pooling/aliasing, rotation/scale limits, and the general group-theoretic
+  (geometric deep learning) treatment of scale separation, each theorem paired with a numerical check against
+  the Task 1 models. See `Doc/`.
+- **RGB extension (in progress):** the same Task 1 comparison rerun on CIFAR-10 to test the theory on harder,
+  uncentered, 3-channel data. See `README_rgb.md`. Not yet gradient-checked with `gradcheck.py`.
+
 ## Files
 - `cnn_vs_ffnn.py` - all models, training and experiments (Task 1)
 - `gradcheck.py` - numerical gradient check
 - `symmetry_checks.py` - numerical verification of the Task 2 theory + figures
-- `docs/` - Task 2 report (Word)
+- `Doc/` - Task 2 report (LaTeX + PDF)
 - `results/` - CSV tables (A headline, B architecture and memory, C invariance, D data scaling, F shifted data) and figures
+
 ## References
 - LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). Gradient-Based Learning Applied to Document Recognition. *Proceedings of the IEEE*, 86(11), 2278–2324.
 - Krizhevsky, A., Sutskever, I., and Hinton, G. E. (2012). ImageNet Classification with Deep Convolutional Neural Networks. *Advances in Neural Information Processing Systems (NeurIPS)*, 25.
