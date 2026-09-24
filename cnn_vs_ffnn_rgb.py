@@ -14,8 +14,6 @@ IMG = 32     # CIFAR-10 image size (28 for Fashion-MNIST)
 C_IN = 3     # RGB channels (1 for Fashion-MNIST)
 IN_SHAPE = (C_IN, IMG, IMG)
 
-
-
 # 1. DATA
 def load_cifar10(data_dir="data"):
     socket.setdefaulttimeout(30)
@@ -62,8 +60,6 @@ def build_cnn_rgb(rng):
     return Model([Conv2D(C_IN, 8, 3, rng), ReLU(), MaxPool2(),   # 32->30->15
                   Conv2D(8, 16, 3, rng), ReLU(), MaxPool2(),     # 15->13->6
                   Flatten(), Dense(16 * 6 * 6, 64, rng), ReLU(), Dense(64, 10, rng)], "CNN-RGB")
-
-
 
 # 3. RGB-CAPABLE IMAGE TRANSFORMS
 #    Generalised versions of cnn_vs_ffnn.py's rotate/translate/scale: same

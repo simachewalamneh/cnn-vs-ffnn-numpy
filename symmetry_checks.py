@@ -6,7 +6,6 @@ OUT = "results/report_figs"; os.makedirs(OUT, exist_ok=True)
 R = {}                                            # everything we measure goes here (saved as JSON)
 rng = np.random.default_rng(0)
 
-
 # ---------- basic operators (float64, written for clarity not speed) -------------------------------
 def shift(x, dy, dx):            # (T_s x)(u) = x(u - s), circular
     return np.roll(x, (dy, dx), axis=(0, 1))

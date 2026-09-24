@@ -28,7 +28,7 @@ def load_fashion(data_dir="data"):
             return np.frombuffer(fh.read(), np.uint8, offset=8)
 
     xtr, ytr, xte, yte = imgs(FILES[0]), labs(FILES[1]), imgs(FILES[2]), labs(FILES[3])
-    return (xtr / 255.0).astype(np.float32), ytr, (xte / 255.0).astype(np.float32), yte
+    return (xtr / 255.0).astype(np.float32), ytr, (xte / 255.0).astype(np.float32), yte # pixel normalization
 
 
 # 2. LAYERS  (each has forward / backward and a list of (param, grad) pairs)
